@@ -1,0 +1,13 @@
+.login-page{
+  background-image: url('../../asset/images/main.jpg');
+  background-size: 100%;
+  height: 935px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form{
+  width: 400px;
+  text-align: center;
+}

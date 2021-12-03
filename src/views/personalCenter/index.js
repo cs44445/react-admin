@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Layout() {
+export default function PersonalCenter() {
   return (
     <div>
-      layout
+      用户中心
     </div>
   )
 }

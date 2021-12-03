@@ -1,0 +1,15 @@
+.header{
+  background-color: #fff;
+}
+
+.header-logout{
+  color: #fff;
+  font-size: 20px;
+  background-color:#001529;
+  text-align: right;
+;
+}
+
+.header-menu{
+  width: 250px;
+}
