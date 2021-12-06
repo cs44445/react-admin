@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Layout, Menu } from "antd"
 import { Link, useLocation } from 'react-router-dom';
-import { menusRoutes } from '../../../routes/routeList'
+import { menusRoutes } from '../../../routes/routelist'
 import './siderbar.css'
 // import { connect } from "react-redux"
 

@@ -4,7 +4,7 @@ import storage from '../../localStorage';
 import { Navigate } from 'react-router';
 import SiderBar from './siderBar/SiderBar'
 import MainHeader from './header/Header'
-import { CotentRoute } from '../../routes/routeList'
+import { CotentRoute } from '../../routes/routelist'
 import './index.css'
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 const { SubMenu } = Menu;
