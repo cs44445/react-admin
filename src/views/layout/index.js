@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import storage from '../../localStorage';
 import { Navigate } from 'react-router';
@@ -6,16 +7,12 @@ import SiderBar from './siderBar/SiderBar'
 import MainHeader from './header/Header'
 import { CotentRoute } from '../../routes/routelist'
 import './index.css'
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
-const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
+const { Header, Content } = Layout;
 
-
-
-function MainLayout() {
+function MainLayout(props) {
   return (
     <Layout>
-      <Header>
+      <Header className="site-layout-background">
         <MainHeader />
       </Header>
       <Layout>
@@ -37,6 +34,14 @@ function MainLayout() {
   )
 }
 
-export default function Main() {
+function isLoginMain() {
   return storage.get('token') ? <MainLayout /> : <Navigate to="/login" />
 }
+
+const mapStateToProps = state => {
+  return {
+    theme: state.themeInfo.theme
+  }
+}
+
+export default connect(mapStateToProps)(isLoginMain)

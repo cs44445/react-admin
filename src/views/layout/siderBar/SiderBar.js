@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Layout, Menu } from "antd"
 import { Link, useLocation } from 'react-router-dom';
 import { menusRoutes } from '../../../routes/routelist'
 import './siderbar.css'
-// import { connect } from "react-redux"
+import { connect } from "react-redux"
 
 const { SubMenu } = Menu;
 const { Sider } = Layout;
@@ -22,11 +22,12 @@ function SideMenus(props) {
   return (
     <Sider
       collapsible
+      theme={props.theme}
       collapsed={collapsed} onCollapse={onCollapse}
     >
       <Menu
         mode="inline"
-        theme="dark"
+        theme={props.theme}
         defaultSelectedKeys={[path]}
         selectedKeys={[path]}
       >
@@ -59,4 +60,10 @@ function SideMenus(props) {
   );
 }
 
-export default SideMenus
+const mapStateToProps = state => {
+  return {
+    theme: state.themeInfo.theme
+  }
+}
+
+export default connect(mapStateToProps)(SideMenus)

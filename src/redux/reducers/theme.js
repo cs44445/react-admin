@@ -1,4 +1,4 @@
-import { CHANGE_THEME_TO_LIGHT, CHANGE_THEME_TO_DARK } from "../constant";
+import { CHANGE_THEME } from "../constant";
 
 const initState = {
   theme: "dark"
@@ -6,10 +6,8 @@ const initState = {
 
 export default function changeThemeReducer(state = initState, action) {
   switch (action.type) {
-    case CHANGE_THEME_TO_LIGHT:
-      return { ...state, theme: "light" }
-    case CHANGE_THEME_TO_DARK:
-      return { ...state, theme: "dark" }
+    case CHANGE_THEME:
+      return { ...state, theme: state.theme === "light" ? "dark" : "light" }
     default:
       return state
   }

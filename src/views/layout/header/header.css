@@ -7,9 +7,13 @@
   font-size: 20px;
   background-color:#001529;
   text-align: right;
-;
 }
 
 .header-menu{
   width: 250px;
+}
+
+.title{
+  display: flex;
+  justify-content: space-between;
 }

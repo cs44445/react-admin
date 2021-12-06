@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
 import './header.css'
-import { Layout, Breadcrumb, Dropdown, Menu, Button, Avatar, Badge } from 'antd'
+import { Layout, Breadcrumb, Dropdown, Menu, Button, Avatar, Badge, Switch } from 'antd'
 import { UserOutlined, ContainerOutlined, SettingFilled, ArrowRightOutlined, CommentOutlined } from '@ant-design/icons'
 import { useNavigate, useLocation } from 'react-router'
 import storage from '../../../localStorage'
+import { connect } from 'react-redux'
+import { changeThemeAction } from '../../../redux/actions/theme'
 
-export default function HeaderComp(props) {
+function HeaderComp(props) {
   const navigate = useNavigate()
 
   function navigateRoute(route) {
@@ -44,8 +46,6 @@ export default function HeaderComp(props) {
     return title;
   }
 
-
-
   // 获取selectedKey，遍历整个menuList，模糊匹配获取最近的路由key
 
   const selectedKey = (pathname, menuList) => {
@@ -82,7 +82,13 @@ export default function HeaderComp(props) {
 
   return (
     <Layout>
-      <div className="header-logout">
+      <div className="header-logout" style={{ backgroundColor: props.theme === "dark" ? '#001529' : '#fff' }}>
+        <Switch
+          checkedChildren="日间模式"
+          unCheckedChildren="夜间模式"
+          style={{ marginRight: '100px' }}
+          onClick={() => props.changeTheme()}
+        />
         <Dropdown overlay={menu} placement="bottomLeft" arrow>
           <Avatar src="https://joeschmoe.io/api/v1/random" style={{ height: "50px", width: "50px" }} />
         </Dropdown>
@@ -90,4 +96,20 @@ export default function HeaderComp(props) {
     </Layout>
   )
 }
+
+const mapStateToProps = state => {
+  return {
+    theme: state.themeInfo.theme
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeTheme: function () {
+      dispatch(changeThemeAction())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderComp)
 

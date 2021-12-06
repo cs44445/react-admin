@@ -1,7 +1,8 @@
 import menuTitleReducer from "./menuTitle";
-import loginReducer from "./login";
+import themeReducer from './theme'
 import { combineReducers } from "redux";
-export default combineReducers({
-  menuTitleReducer,
-  loginReducer
+const reducer = combineReducers({
+  themeInfo: themeReducer
 })
+
+export default reducer
