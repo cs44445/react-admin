@@ -65,10 +65,7 @@ export default function User() {
   }
 
   const handleDelete = (id) => {
-    const dataSource = [...dataSource];
-    this.setState({
-      dataSource: dataSource.filter((item) => item.id !== id),
-    });
+    setDataSource(dataSource.filter(item => item.id !== id))
   };
 
   const handleSimpleAdd = () => {
