@@ -5,6 +5,8 @@ export default function Home() {
     <div>
       Home
       <span>第一次更改</span>
+      <hr/>
+      <span>第二次更改</span>
     </div>
   )
 }
